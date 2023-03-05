@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="head.html">
+</head>
+<body>
+
+<header class="header">
+    <nav th:include="navbar.html">
+    </nav>
+</header>
+
+<div th:if="${param.errorFecha}" style="text-align: center">
+    <div class="alert alert-danger">La fecha que ha introducido no es valida</div>
+</div>
+
+<main>
+    <section class="banner-wrapper p-0 carrousel-movil">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/images/carousel/sitio.jpg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="/images/carousel/malaga.png" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="/images/carousel/valencia.jpg" class="d-block w-100" alt="...">
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<section>
+    <section class="p-0 formulario-movil">
+        <div class="container availability-form">
+            <div class="row">
+                <div class="col-lg-8 bg-white shadow p-4 rounded">
+                    <form class="form-group" th:action="@{/reserva/buscar}" th:object="${hotel}" method="get">
+                        <div class="row align-items-end">
+                            <div class="col-lg-3 mb-3">
+                                <label class="form-label" style="font-weight: 500;">Introduce destino</label>
+                                <input type="search" class="form-control shadow-none" placeholder="Introduce destino"
+                                       th:name="ubicacion">
+                            </div>
+                            <div class="col-lg-3 mb-3">
+                                <label class="form-label" style="font-weight: 500;">Fecha Entrada</label>
+                                <input type="Date" class="form-control shadow-none" th:name="fechaInicio">
+                            </div>
+                            <div class="col-lg-3 mb-3">
+                                <label class="form-label" style="font-weight: 500;">Fecha Salida</label>
+                                <input type="date" class="form-control shadow-none" th:name="fechaFin">
+                            </div>
+
+                            <div class="col-lg-1 mb-lg-3 mt-2">
+                                <button type="submit" class="btn btn-primary shadow-none">Buscar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+<div class="Marcas">
+    <div class="Novedades">
+
+        <h1 class="nov">NUESTROS LUGARES FAVORITOS</h1>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <div class="card card-movil">
+                <img src="/images/hotelsevilla.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Sevilla</h5>
+                    <p class="card-text">Visita la capital de Andalucía.</p>
+                    <a href="/hoteles/listar?lugar=Sevilla">
+                        <button class="btn btn-primary">Ver Hoteles</button>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card card-movil">
+                <img src="/images/barcelonahotel.jpeg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Barcelona</h5>
+                    <p class="card-text">La ciudad condal de España.</p>
+                    <a href="/hoteles/listar?lugar=Barcelona">
+                        <button class="btn btn-primary">Ver Hoteles</button>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card card-movil">
+                <img src="/images/madridhoteles.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Madrid</h5>
+                    <p class="card-text">Visital la capital de España</p>
+                    <a href="/hoteles/listar?lugar=Madrid">
+                        <button class="btn btn-primary">Ver Hoteles</button>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="columna">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card card-movil">
+                    <img src="/images/destacadaqueverencadiz.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Cadiz</h5>
+                        <p class="card-text">Visita la capital de Andalucía.</p>
+                        <a href="/hoteles/listar?lugar=Cadiz">
+                            <button class="btn btn-primary">Ver Hoteles</button>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card card-movil">
+                    <img src="/images/galicia.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Galicia</h5>
+                        <p class="card-text">Visita Galicia y come sus mejores tapas.</p>
+                        <a href="/hoteles/listar?lugar=Galicia">
+                            <button class="btn btn-primary">Ver Hoteles</button>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card card-movil">
+                    <img src="/images/carousel/malaga.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Malaga</h5>
+                        <p class="card-text">Visital la capital de España</p>
+                        <a href="/hoteles/listar?lugar=Malaga">
+                            <button class="btn btn-primary">Ver Hoteles</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:include="footer.html"></footer>
+</body>
+</html>
